@@ -10,12 +10,10 @@ const TodoList = ({ todos, handleComplete }) => {
           className={`flex justify-between items-center p-3 border rounded ${
             todo.completed ? 'bg-green-100 line-through' : 'bg-white'
           }`}
-          
         >
           <span>{todo.text}</span>
 
-          {/* Only show button if not completed */}
-          {!todo.completed ? (
+          {!todo.completed && (
             <button
               data-testid={`complete-button-${todo.id}`}
               onClick={() => handleComplete(todo.id)}
@@ -23,8 +21,6 @@ const TodoList = ({ todos, handleComplete }) => {
             >
               Complete
             </button>
-          ) : (
-            <span className="text-green-600 font-semibold">Completed</span>
           )}
         </li>
       ))}
@@ -33,3 +29,4 @@ const TodoList = ({ todos, handleComplete }) => {
 };
 
 export default TodoList;
+
