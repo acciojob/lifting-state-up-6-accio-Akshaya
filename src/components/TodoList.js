@@ -12,9 +12,9 @@ const TodoList = ({ todos, handleComplete }) => {
           }`}
         >
           <span>{todo.text}</span>
-          {/* DIRECTLY button inside li */}
           {!todo.completed && (
             <button
+              key={`complete-${todo.id}`}
               onClick={() => handleComplete(todo.id)}
               className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
             >
