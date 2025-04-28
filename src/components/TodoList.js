@@ -11,17 +11,16 @@ const TodoList = ({ todos, handleComplete }) => {
             todo.completed ? 'bg-green-100 line-through' : 'bg-white'
           }`}
         >
-          <div className="flex justify-between w-full items-center">
-            <span>{todo.text}</span>
-            {!todo.completed && (
-              <button
-                onClick={() => handleComplete(todo.id)}
-                className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
-              >
-                Complete
-              </button>
-            )}
-          </div>
+          <span>{todo.text}</span>
+          {/* DIRECTLY button inside li */}
+          {!todo.completed && (
+            <button
+              onClick={() => handleComplete(todo.id)}
+              className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+            >
+              Complete
+            </button>
+          )}
         </li>
       ))}
     </ul>
