@@ -6,10 +6,11 @@ const TodoList = ({ todos, handleComplete }) => {
       {todos.map(todo => (
         <li
           key={todo.id}
+          data-testid={`todo-${todo.id}`}
           className={`flex justify-between items-center p-3 border rounded ${
             todo.completed ? 'bg-green-100 line-through' : 'bg-white'
           }`}
-          data-testid={`todo-${todo.id}`}
+          
         >
           <span>{todo.text}</span>
           {!todo.completed && (
