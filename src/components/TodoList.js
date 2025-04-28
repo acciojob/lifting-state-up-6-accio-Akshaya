@@ -9,6 +9,7 @@ const TodoList = ({ todos, handleComplete }) => {
           className={`flex justify-between items-center p-3 border rounded ${
             todo.completed ? 'bg-green-100 line-through' : 'bg-white'
           }`}
+          data-testid={`todo-${todo.id}`}
         >
           <span>{todo.text}</span>
           {!todo.completed && (
