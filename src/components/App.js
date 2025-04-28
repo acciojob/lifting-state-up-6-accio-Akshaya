@@ -18,7 +18,8 @@ const App = () => {
   return (
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">Parent Component</h1>
-      <h1>child Component</h1>
+       <h1>child Component</h1>
+
       <TodoList todos={todos} handleComplete={handleComplete}/>
         {/* Do not remove the main div */}
     </div>
