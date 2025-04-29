@@ -8,15 +8,17 @@ function TodoList({ todos, handleComplete }) {
           <span
             style={{
               textDecoration: todo.completed ? "line-through" : "none",
-              marginRight: "10px",
+              marginRight: "10px"
             }}
           >
             {todo.task}
           </span>
+
+          {/* The Cypress test expects this button to disappear when clicked */}
           {!todo.completed && (
             <button
-              data-testid={`complete-button-${todo.id}`}
               onClick={() => handleComplete(todo.id)}
+              data-testid={`complete-button-${todo.id}`}
             >
               Complete
             </button>
@@ -28,3 +30,4 @@ function TodoList({ todos, handleComplete }) {
 }
 
 export default TodoList;
+
