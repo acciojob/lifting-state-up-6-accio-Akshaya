@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import TodoList from './TodoList'; 
+import React, { useState } from "react";
+import TodoList from "./TodoList";
 
-const App = () => {
+function App() {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Learn React', completed: false },
-    { id: 2, text: 'Build a Todo App', completed: false },
-    { id: 3, text: 'Deploy the React app', completed: false},
+    { id: 1, task: "Learn React", completed: false },
+    { id: 2, task: "Build a Todo App", completed: false },
+    { id: 3, task: "Deploy to GitHub Pages", completed: false },
   ]);
 
-  const handleComplete = (id) =>{
-    const updatedTodos = todos.map((todo) =>
-       todo.id === id ? {...todo, completed: true} : todo
+  const handleComplete = (id) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: true } : todo
+      )
     );
-    setTodos(updatedTodos);
   };
 
   return (
     <div className="App">
-      <h1>Todo App</h1>
+      <h1>Todo List</h1>
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );

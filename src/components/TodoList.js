@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const TodoList = ({ todos, handleComplete }) => {
+function TodoList({ todos, handleComplete }) {
   return (
     <ul>
       {todos.map((todo) => (
@@ -8,17 +8,23 @@ const TodoList = ({ todos, handleComplete }) => {
           <span
             style={{
               textDecoration: todo.completed ? "line-through" : "none",
+              marginRight: "10px",
             }}
           >
             {todo.task}
           </span>
           {!todo.completed && (
-            <button onClick={() => handleComplete(todo.id)}>Complete</button>
+            <button
+              data-testid={`complete-button-${todo.id}`}
+              onClick={() => handleComplete(todo.id)}
+            >
+              Complete
+            </button>
           )}
         </li>
       ))}
     </ul>
   );
-};
+}
 
 export default TodoList;
